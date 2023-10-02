@@ -1,12 +1,20 @@
 CC = gcc
+CFLAGS = 
+DEPS =
+LIBS = -lm
+BINS = ch05_01 ch05_02 ch05_03 ch05_04 ch05_05
 
-all: ch05_01
+all: $(BINS)
 
-ch05_01: ch05_01.o
-	$(CC) -o ch05_01 ch05_01.o
+$(BINS): $(BIN=$(.TARGET))
 
-cho5_01.o: ch05_01.c
-	$(CC) -c ch01_01.c
+%.o: %.c
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+$(BIN): $(BIN).o
+	$(CC) -o $(.TARGET) $< $(LIBS)
+
+.PHONY: clean
 
 clean:
 	rm -f *.o core

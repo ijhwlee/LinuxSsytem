@@ -1,6 +1,8 @@
 #include <sys/utsname.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/param.h>
+#include <unistd.h>
 
 int main() {
   struct utsname uts;
@@ -17,6 +19,10 @@ int main() {
   printf("Release \t: %s\n", uts.release);
   printf("Version \t: %s\n", uts.version);
   printf("Machine \t: %s\n", uts.machine);
+
+  char hn[MAXHOSTNAMELEN]="";
+  gethostname(hn, MAXHOSTNAMELEN);
+  printf("Hostname: \t: %s\n", hn);
 
   return 0;
 }
