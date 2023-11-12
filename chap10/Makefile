@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = 
 DEPS =
 LIBS = -lm
-BINS = ch10_01 ch10_04
+BINS = ch10_01 ch10_02
 
 all: $(BINS)
 
